@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whitepace — SaaS Landing Page</title>
+  <!-- Подключаем оригинальный шрифт Inter из Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Хедер -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <img class="logo-icon" src="img/logo.svg" width="32" height="29" alt="">
+        <span class="logo-text">whitepace</span>
+      </a>
+
+      <!-- На мобильных экранах обычное меню скрывается, а эта кнопка изображает бургер. -->
+      <button class="burger-btn" type="button" aria-label="Open navigation" aria-controls="primary-navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <!-- Основная навигация показывается начиная с планшетной ширины (768px) -->
+      <nav class="nav" id="primary-navigation" aria-label="Primary navigation">
+        <ul class="nav-list">
+          <li><a href="#products" class="nav-link">Products</a></li>
+          <li><a href="#solutions" class="nav-link">Solutions</a></li>
+          <li><a href="#resources" class="nav-link">Resources</a></li>
+          <li><a href="#pricing" class="nav-link">Pricing</a></li>
+        </ul>
+        <div class="header-actions">
+          <a href="#" class="btn btn-login">Login</a>
+          <a href="#contact" class="btn btn-yellow">Try Whitepace free &rarr;</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero-секция -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-content">
+        <h1>Get More Done with whitepace</h1>
+        <p>Project management software that enables your teams to collaborate, plan, analyze and manage everyday tasks</p>
+        <a href="#contact" class="btn btn-accent btn-large">Try Whitepace free &rarr;</a>
+      </div>
+      <!-- Декоративный макет интерфейса собран HTML-элементами и оформлен в CSS -->
+      <div class="hero-image">
+        <div class="image-box" aria-hidden="true">
+          <div class="mockup-window">
+            <div class="mockup-bar">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="mockup-body">
+              <div class="mockup-sidebar">
+                <span class="mockup-brand"></span>
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <div class="mockup-content">
+                <div class="mockup-heading"></div>
+                <div class="mockup-stats">
+                  <span></span><span></span><span></span>
+                </div>
+                <div class="mockup-chart">
+                  <i></i><i></i><i></i><i></i><i></i><i></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="floating-dot dot-one"></span>
+          <span class="floating-dot dot-two"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция Тарифов (Grid) -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <div class="section-title">
+        <h2>Choose Your Plan</h2>
+        <p>Whether you want to get organized, keep your personal life on track, or boost workplace productivity, Evernote has the right plan for you.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Карточка 1 -->
+        <article class="price-card">
+          <h3>Free</h3>
+          <p class="price">$0</p>
+          <p class="price-desc">Capture ideas and find them quickly</p>
+          <ul class="features">
+            <li>Sync unlimited devices</li>
+            <li>10 GB monthly uploads</li>
+            <li>200 MB max. note size</li>
+            <li>Customize Home dashboard</li>
+          </ul>
+          <a href="#" class="btn btn-outline">Get Started</a>
+        </article>
+
+        <!-- Карточка 2 (Выделенная) -->
+        <article class="price-card card-featured">
+          <h3>Personal</h3>
+          <p class="price">$11.99</p>
+          <p class="price-desc">Keep home and family on track</p>
+          <ul class="features">
+            <li>Sync unlimited devices</li>
+            <li>10 GB monthly uploads</li>
+            <li>200 MB max. note size</li>
+            <li>Customize Home dashboard and access extra widgets</li>
+            <li>Connect primary Google Calendar account</li>
+          </ul>
+          <a href="#" class="btn btn-accent">Get Started</a>
+        </article>
+
+        <!-- Карточка 3 -->
+        <article class="price-card">
+          <h3>Organization</h3>
+          <p class="price">$49.99</p>
+          <p class="price-desc">Capture ideas and find them quickly</p>
+          <ul class="features">
+            <li>Sync unlimited devices</li>
+            <li>10 GB monthly uploads</li>
+            <li>200 MB max. note size</li>
+            <li>Customize Home dashboard</li>
+          </ul>
+          <a href="#" class="btn btn-outline">Get Started</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Форма обратной связи -->
+  <section id="contact" class="contact">
+    <div class="container contact-inner">
+      <div class="contact-info">
+        <h2>Contact Us</h2>
+        <p>Have questions or need assistance? Fill out the form and our team will reach out within 24 hours.</p>
+      </div>
+
+      <!-- Форма для демонстрации адаптивной раскладки и оформления полей -->
+      <form class="contact-form">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <!-- Обычное текстовое поле -->
+          <input type="text" id="email" name="email" placeholder="john@example.com">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="How can we help you?" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-accent btn-large">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Футер -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="logo">
+          <img class="logo-icon" src="img/logo.svg" width="28" height="26" alt="">
+          <span class="logo-text">whitepace</span>
+        </div>
+        <p>whitepace was created for the new way we live and work. We make a better workspace around the world.</p>
+      </div>
+      <p class="copyright">&copy; 2026 Whitepace LLC. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

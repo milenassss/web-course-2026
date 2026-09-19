@@ -1,0 +1,654 @@
+/* ==========================================================================
+   1. ПЕРЕМЕННЫЕ И БАЗОВЫЙ СБРОС (MOBILE FIRST)
+   ========================================================================== */
+:root {
+  --bg-blue: #043873;
+  --accent-blue: #4F9CF9;
+  --accent-yellow: #FFE492;
+  --text-dark: #212529;
+  --text-light: #FFFFFF;
+  --text-muted: #4F9CF9;
+  --border-color: #FFE492;
+  --font-family: 'Inter', system-ui, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Grid задаёт основную одноколоночную структуру всей страницы */
+body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: auto;
+  font-family: var(--font-family);
+  color: var(--text-dark);
+  background-color: var(--text-light);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+/* Контейнер не даёт содержимому прилипать к краям экрана */
+.container {
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Минимум 44×44px делает кнопки и поля удобными для нажатия пальцем */
+.btn, input, textarea, .burger-btn {
+  min-height: 44px;
+  min-width: 44px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+/* Кнопки */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-accent {
+  background-color: var(--accent-blue);
+  color: var(--text-light);
+}
+
+.btn-accent:hover {
+  background-color: #3b82f6;
+  transform: translateY(-2px);
+}
+
+.btn-yellow {
+  background-color: var(--accent-yellow);
+  color: var(--bg-blue);
+}
+
+.btn-yellow:hover,
+.btn-login:hover {
+  background-color: #ffd666;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--accent-yellow);
+  color: var(--text-dark);
+}
+
+.btn-outline:hover {
+  background-color: var(--accent-yellow);
+}
+
+.btn-login {
+  background-color: var(--accent-yellow);
+  color: var(--bg-blue);
+  padding: 10px 24px;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--accent-blue);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   2. МОБИЛЬНЫЕ СТИЛИ (< 768px)
+   ========================================================================== */
+
+/* Flexbox располагает логотип и меню по краям шапки */
+.header {
+  background-color: var(--bg-blue);
+  padding: 16px 0;
+  position: relative;
+  z-index: 10;
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.logo-text {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-light);
+}
+
+/* Три span образуют иконку бургера без отдельного изображения */
+.burger-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 44px;
+  height: 44px;
+  padding: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.burger-btn span {
+  width: 100%;
+  height: 3px;
+  background-color: var(--text-light);
+  border-radius: 2px;
+}
+
+.nav {
+  /* В Mobile First версии ссылки скрыты, вместо них виден бургер */
+  display: none;
+}
+
+.nav-list,
+.header-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  width: 100%;
+}
+
+.nav-link {
+  display: block;
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 10px 4px;
+}
+
+.header-actions .btn {
+  width: 100%;
+}
+
+/* Hero-секция */
+.hero {
+  background-color: var(--bg-blue);
+  color: var(--text-light);
+  padding: 60px 0;
+}
+
+.hero-inner {
+  /* На телефоне текст и изображение находятся друг под другом */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 40px;
+}
+
+.hero-content h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  color: #E7F1FF;
+  margin-bottom: 32px;
+}
+
+.hero-image .image-box {
+  width: 100%;
+  height: 240px;
+  background-color: #C4DEFD;
+  border-radius: 8px;
+  padding: 18px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0, 21, 56, 0.24);
+}
+
+/* Упрощённая иллюстрация интерфейса из обычных HTML-блоков */
+.mockup-window {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(4, 56, 115, 0.18);
+  position: relative;
+  z-index: 2;
+}
+
+.mockup-bar {
+  height: 28px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 12px;
+  background: #edf5ff;
+}
+
+.mockup-bar span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #9bc8fb;
+}
+
+.mockup-body {
+  display: grid;
+  grid-template-columns: 28% 1fr;
+  height: calc(100% - 28px);
+}
+
+.mockup-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 10px;
+  background: #f5f9ff;
+}
+
+.mockup-sidebar span {
+  display: block;
+  width: 78%;
+  height: 5px;
+  border-radius: 99px;
+  background: #c9dcf4;
+}
+
+.mockup-sidebar .mockup-brand {
+  width: 44%;
+  height: 16px;
+  margin-bottom: 6px;
+  background: var(--accent-blue);
+}
+
+.mockup-content {
+  padding: 17px 14px;
+}
+
+.mockup-heading {
+  width: 45%;
+  height: 9px;
+  margin-bottom: 14px;
+  border-radius: 99px;
+  background: #6caaf5;
+}
+
+.mockup-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+
+.mockup-stats span {
+  height: 30px;
+  border-radius: 5px;
+  background: #e2efff;
+}
+
+.mockup-chart {
+  height: 70px;
+  margin-top: 13px;
+  padding: 10px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 5px;
+  border-radius: 6px;
+  background: #f7faff;
+}
+
+.mockup-chart i {
+  flex: 1;
+  height: 45%;
+  border-radius: 3px 3px 0 0;
+  background: #83b9fa;
+}
+
+.mockup-chart i:nth-child(2) { height: 72%; }
+.mockup-chart i:nth-child(3) { height: 55%; }
+.mockup-chart i:nth-child(4) { height: 86%; }
+.mockup-chart i:nth-child(5) { height: 66%; }
+.mockup-chart i:nth-child(6) { height: 94%; }
+
+.floating-dot {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: rgba(79, 156, 249, 0.3);
+}
+
+.dot-one { top: -30px; right: -22px; }
+.dot-two { bottom: -45px; left: 22%; }
+
+/* Секция Тарифов (CSS Grid) */
+.pricing {
+  padding: 60px 0;
+}
+
+.section-title {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+}
+
+.section-title h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.pricing-grid {
+  /* Базовая мобильная раскладка: одна карточка в строке */
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+/* Карточка */
+.price-card {
+  border: 1px solid #FFE492;
+  border-radius: 10px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 0;
+}
+
+.price-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.card-featured {
+  background-color: var(--bg-blue);
+  color: var(--text-light);
+  border-color: var(--bg-blue);
+}
+
+.price-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.price-card .price {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.card-featured .price {
+  color: var(--accent-yellow);
+}
+
+.features {
+  list-style: none;
+  margin: 24px 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.features li {
+  /* Flexbox прижимает кнопку к низу даже при разном количестве текста */
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.features li::before {
+  content: "✓";
+  color: var(--accent-blue);
+  font-weight: bold;
+}
+
+/* Форма обратной связи */
+.contact {
+  padding: 60px 0;
+  background-color: #F8FAFC;
+}
+
+.contact-inner {
+  /* На телефоне описание и форма расположены в одной колонке */
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+}
+
+input, textarea {
+  padding: 12px 16px;
+  border: 1px solid #CBD5E1;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  background: #fff;
+  color: var(--text-dark);
+}
+
+textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+input:hover, textarea:hover {
+  border-color: #94A3B8;
+}
+
+input:focus-visible, textarea:focus-visible {
+  outline: none;
+  border-color: var(--accent-blue);
+  box-shadow: 0 0 0 3px rgba(79, 156, 249, 0.2);
+}
+
+/* Подвал */
+.footer {
+  background-color: var(--bg-blue);
+  color: var(--text-light);
+  padding: 40px 0;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  text-align: center;
+}
+
+.footer-brand p {
+  color: #E7F1FF;
+  margin-top: 12px;
+  font-size: 0.95rem;
+}
+
+.copyright {
+  color: #A7CEFC;
+  font-size: 0.875rem;
+  border-top: 1px solid #2E68FD;
+  padding-top: 20px;
+}
+
+/* ==========================================================================
+   3. ПЛАНШЕТНЫЕ СТИЛИ (ОТ 768px)
+   ========================================================================== */
+@media (min-width: 768px) {
+  /* Планшет: увеличиваем рабочую область и боковые отступы */
+  .container {
+    max-width: 960px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .burger-btn {
+    /* С планшетной ширины вместо бургера показывается навигация */
+    display: none;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    align-items: center;
+    gap: 18px;
+    width: auto;
+  }
+
+  .nav-link {
+    padding: 8px 0;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--accent-yellow);
+  }
+
+  .header-actions {
+    /* Дополнительные кнопки скрыты, чтобы меню помещалось на планшете */
+    display: none;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.85fr);
+    align-items: center;
+    gap: 40px;
+  }
+
+  .hero-image .image-box {
+    height: 300px;
+  }
+
+  /* Карточки в 2 колонки */
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .price-card:last-child {
+    /* Нечётная третья карточка занимает всю следующую строку */
+    grid-column: 1 / -1;
+  }
+
+  .contact-inner {
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 48px;
+  }
+}
+
+/* ==========================================================================
+   4. ДЕСКТОПНЫЕ СТИЛИ (ОТ 1200px)
+   ========================================================================== */
+@media (min-width: 1200px) {
+  /* Десктоп: максимальная ширина соответствует пропорциям макета Figma */
+  .container {
+    max-width: 1152px;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .nav {
+    gap: 32px;
+  }
+
+  .nav-list { gap: 24px; }
+
+  .header-actions {
+    /* На широком экране хватает места для Login и основной CTA-кнопки */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    width: auto;
+  }
+
+  .header-actions .btn { width: auto; }
+
+  .hero-content h1 {
+    font-size: 3.5rem;
+  }
+
+  .hero-image .image-box {
+    height: 380px;
+  }
+
+  /* Карточки в 3 колонки (CSS Grid) */
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+
+  .price-card:last-child {
+    grid-column: auto;
+  }
+
+  /* Делаем среднюю карточку чуть крупнее */
+  .price-card.card-featured {
+    padding: 48px 24px;
+  }
+
+  /* Форма в 2 колонки */
+  .contact-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .copyright {
+    border-top: none;
+    padding-top: 0;
+  }
+}
