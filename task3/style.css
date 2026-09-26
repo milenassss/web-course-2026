@@ -1,0 +1,304 @@
+/* Базовые переменные помогают поддерживать единый стиль страницы. */
+:root {
+  --page-bg: #f3f5fb;
+  --card-bg: #ffffff;
+  --text: #1c2333;
+  --muted: #687087;
+  --primary: #6658d3;
+  --primary-dark: #5144b8;
+  --primary-soft: #eeecff;
+  --danger: #d6455d;
+  --danger-soft: #fff0f3;
+  --border: #dfe3ee;
+  --shadow: 0 18px 50px rgba(41, 46, 75, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  padding: 32px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, #e8e4ff 0, transparent 35%),
+    var(--page-bg);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.todo-app {
+  width: min(100%, 720px);
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid rgba(223, 227, 238, 0.8);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+}
+
+.app-header {
+  padding: 36px 36px 28px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #7567df, #5144b8);
+}
+
+.eyebrow,
+.subtitle,
+.app-header h1 {
+  margin: 0;
+}
+
+.eyebrow {
+  margin-bottom: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.78;
+}
+
+.app-header h1 {
+  font-size: clamp(2rem, 7vw, 3rem);
+  line-height: 1.1;
+}
+
+.subtitle {
+  margin-top: 10px;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.task-form,
+.task-panel {
+  padding: 28px 36px;
+}
+
+.task-form {
+  padding-bottom: 8px;
+}
+
+.task-form label {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+#task-input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 15px;
+  color: var(--text);
+  background: #fbfcff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+#task-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-soft);
+}
+
+#task-input.input-error {
+  border-color: var(--danger);
+}
+
+.add-button {
+  min-height: 48px;
+  padding: 0 22px;
+  color: #ffffff;
+  background: var(--primary);
+  border: 0;
+  border-radius: 12px;
+  font-weight: 700;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.add-button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.message {
+  min-height: 20px;
+  margin: 7px 0 0;
+  color: var(--danger);
+  font-size: 0.88rem;
+}
+
+.task-panel {
+  padding-top: 20px;
+}
+
+.panel-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.panel-heading h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.counter {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.filters {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-button {
+  min-height: 40px;
+  padding: 0 16px;
+  color: var(--muted);
+  background: #f5f6fa;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-weight: 650;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.filter-button:hover,
+.filter-button.active {
+  color: var(--primary-dark);
+  background: var(--primary-soft);
+}
+
+.task-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+}
+
+.task-item {
+  min-height: 58px;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fbfcff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.task-checkbox {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.task-text {
+  flex: 1;
+  overflow-wrap: anywhere;
+  transition: opacity 0.2s;
+}
+
+/* Класс выполненной задачи назначается из JavaScript. */
+.task-item.completed .task-text {
+  color: var(--muted);
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.delete-button {
+  min-height: 38px;
+  padding: 0 13px;
+  color: var(--danger);
+  background: var(--danger-soft);
+  border: 0;
+  border-radius: 10px;
+  font-weight: 700;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.delete-button:hover {
+  color: #ffffff;
+  background: var(--danger);
+}
+
+.empty-state {
+  margin: 12px 0 0;
+  padding: 30px 16px;
+  color: var(--muted);
+  background: #fbfcff;
+  border: 1px dashed var(--border);
+  border-radius: 14px;
+  text-align: center;
+}
+
+.empty-state[hidden] {
+  display: none;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid rgba(102, 88, 211, 0.35);
+  outline-offset: 2px;
+}
+
+@media (max-width: 560px) {
+  body {
+    padding: 16px 10px;
+  }
+
+  .todo-app {
+    border-radius: 18px;
+  }
+
+  .app-header,
+  .task-form,
+  .task-panel {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+
+  .input-row,
+  .panel-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .add-button {
+    width: 100%;
+  }
+
+  .task-item {
+    align-items: flex-start;
+  }
+
+  .delete-button {
+    padding: 0 10px;
+  }
+}

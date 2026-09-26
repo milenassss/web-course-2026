@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Интерактивный список задач на чистом JavaScript">
+  <title>Todo-list — Лабораторная работа №3</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="todo-app">
+    <header class="app-header">
+      <p class="eyebrow">Лабораторная работа №3</p>
+      <h1>Мои задачи</h1>
+      <p class="subtitle">Небольшой список, чтобы ничего не забыть.</p>
+    </header>
+
+    <!-- Форма позволяет добавлять задачи кнопкой и клавишей Enter. -->
+    <form class="task-form" id="task-form" novalidate>
+      <label for="task-input">Новая задача</label>
+      <section class="input-row">
+        <input
+          id="task-input"
+          type="text"
+          placeholder="Например, подготовить отчёт"
+          autocomplete="off"
+          maxlength="120"
+        >
+        <button class="add-button" type="submit">Добавить</button>
+      </section>
+      <p class="message" id="form-message" aria-live="polite"></p>
+    </form>
+
+    <section class="task-panel" aria-labelledby="tasks-title">
+      <section class="panel-heading">
+        <h2 id="tasks-title">Список задач</h2>
+        <p class="counter" id="task-counter" aria-live="polite">
+          Осталось: 0, Выполнено: 0
+        </p>
+      </section>
+
+      <!-- Кнопки меняют только отображение, не удаляя задачи из массива. -->
+      <nav class="filters" aria-label="Фильтр задач">
+        <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">
+          Все
+        </button>
+        <button class="filter-button" type="button" data-filter="active" aria-pressed="false">
+          Активные
+        </button>
+        <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">
+          Завершённые
+        </button>
+      </nav>
+
+      <ul class="task-list" id="task-list"></ul>
+      <p class="empty-state" id="empty-state">Задач пока нет. Добавьте первую!</p>
+    </section>
+  </main>
+</body>
+</html>
