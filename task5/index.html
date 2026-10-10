@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simon - игра на память</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  
+  <body style="background: url('img.jpg') center/cover no-repeat fixed;">
+    <main class="game-card">
+      <header class="game-header">
+        <h1>Simon</h1>
+        <p class="subtitle">Запомните вспышки и повторите их в том же порядке.</p>
+      </header>
+
+      <section class="game-info" aria-label="Состояние игры">
+        <p class="level-label">Уровень <strong id="level">0</strong></p>
+        <p id="status" class="status" role="status" aria-live="polite">
+          Нажмите «Старт», чтобы начать игру
+        </p>
+      </section>
+
+      <section id="board" class="board" aria-label="Игровое поле Simon">
+        <button class="sector sector--green" type="button" data-sector="0" aria-label="Зелёный сектор" disabled></button>
+        <button class="sector sector--red" type="button" data-sector="1" aria-label="Красный сектор" disabled></button>
+        <button class="sector sector--yellow" type="button" data-sector="2" aria-label="Жёлтый сектор" disabled></button>
+        <button class="sector sector--blue" type="button" data-sector="3" aria-label="Синий сектор" disabled></button>
+        <span class="board-center" aria-hidden="true">SIMON</span>
+      </section>
+
+      <button id="start-button" class="start-button" type="button">Старт</button>
+    </main>
+  </body>
+</html>
