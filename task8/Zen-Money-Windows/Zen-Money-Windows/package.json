@@ -1,0 +1,1 @@
+{"name":"zen-money-labs-8-9","version":"1.0.0","private":true,"scripts":{"start":"json-server --watch db.json --port 3001 --static ."},"devDependencies":{"json-server":"0.17.4"}}

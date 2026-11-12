@@ -1,0 +1,45 @@
+{
+  "transactions": [
+    {
+      "id": 1,
+      "amount": 2500,
+      "type": "income",
+      "categoryId": 2,
+      "date": "2026-11-01",
+      "comment": "Зарплата за октябрь"
+    },
+    {
+      "id": 2,
+      "amount": 82.5,
+      "type": "expense",
+      "categoryId": 1,
+      "date": "2026-11-05",
+      "comment": "Продукты на неделю"
+    },
+    {
+      "id": 3,
+      "amount": 12,
+      "type": "expense",
+      "categoryId": 3,
+      "date": "2026-11-10",
+      "comment": "Проезд"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Еда",
+      "type": "expense"
+    },
+    {
+      "id": 2,
+      "name": "Зарплата",
+      "type": "income"
+    },
+    {
+      "id": 3,
+      "name": "Транспорт",
+      "type": "expense"
+    }
+  ]
+}
