@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Лента постов</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="feed">
+      <header class="feed-header">
+        <p class="eyebrow">JSONPlaceholder · лента</p>
+        <h1>Истории в потоке</h1>
+        <p class="intro">Листайте вниз — новые посты появятся сами.</p>
+      </header>
+
+      <section class="search-panel" aria-label="Поиск постов">
+        <label for="search">Поиск по заголовку</label>
+        <input id="search" type="search" placeholder="Что хотите найти?" autocomplete="off" aria-describedby="search-hint">
+        <p id="search-hint">Поиск только среди загруженных постов. Новые порции также проверяются по вашему запросу.</p>
+      </section>
+
+      <p id="counter" class="counter" role="status" aria-live="polite">Загружено: 0</p>
+      <section id="posts" class="posts" aria-label="Посты" aria-busy="false"></section>
+      <p id="empty" class="empty" hidden>Совпадений нет. Измените запрос или загрузите ещё посты.</p>
+
+      <section class="load-panel" aria-label="Загрузка постов">
+        <p id="loading" role="status" hidden><span class="spinner" aria-hidden="true"></span>Загрузка…</p>
+        <p id="error" class="error" role="alert" hidden></p>
+        <p id="end" role="status" hidden>Больше постов нет</p>
+        <button id="load-more" type="button">Загрузить ещё</button>
+      </section>
+      <div id="sentinel" aria-hidden="true"></div>
+      <footer>Посты из открытого учебного API JSONPlaceholder</footer>
+    </main>
+  </body>
+</html>
